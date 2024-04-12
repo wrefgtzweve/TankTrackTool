@@ -189,6 +189,7 @@ else
         local size = net.ReadUInt( 32 )
         local data = net.ReadData( size )
 
+        ent.netvar = ent.netvar or {}
         ent.netvar.values = util.JSONToTable( util.Decompress( data ) )
         ent:netvar_callback( "netvar_syncData", ent.netvar.values )
 
